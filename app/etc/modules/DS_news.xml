@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <DS_News>
+            <active>true</active>
+            <codePool>local</codePool>
+        </DS_News>
+    </modules>
+</config>
