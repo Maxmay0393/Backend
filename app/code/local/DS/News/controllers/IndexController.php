@@ -31,7 +31,7 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
 	public function saveAction()
  {
     //выбираем данные из пришедшего запроса POST
-    $title = ''.Mage::getSingleton('customer/session')->getCustomer()->getName();
+    $title = ''.Mage::getSingleton('customer/session')->getCustomer()->getId();
     $content = ''.$this->getRequest()->getPost('content');
 	
      
@@ -46,7 +46,7 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
    }
    //перенаправление на метод index контроллера indexController
     
-   $this->_redirect('Testimonials/index/index');
+   $this->_redirect('testimonials/index/index');
 }
 
 }
