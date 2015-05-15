@@ -1,12 +1,12 @@
 <?php
 
-class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
+class DS_Call_Adminhtml_CallController extends Mage_Adminhtml_Controller_Action
 {
 
     public function indexAction()
     {
-        $this->loadLayout()->_setActiveMenu('dsnews');
-        $this->_addContent($this->getLayout()->createBlock('dsnews/adminhtml_news'));
+        $this->loadLayout()->_setActiveMenu('dscall');
+        $this->_addContent($this->getLayout()->createBlock('dscall/adminhtml_call'));
         $this->renderLayout();
     }
 
@@ -18,10 +18,10 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
     public function editAction()
     {
         $id = (int) $this->getRequest()->getParam('id');
-        Mage::register('current_news', Mage::getModel('dsnews/news')->load($id));
+        Mage::register('current_call', Mage::getModel('dscall/call')->load($id));
 
-        $this->loadLayout()->_setActiveMenu('dsnews');
-        $this->_addContent($this->getLayout()->createBlock('dsnews/adminhtml_news_edit'));
+        $this->loadLayout()->_setActiveMenu('dscall');
+        $this->_addContent($this->getLayout()->createBlock('dscall/adminhtml_call_edit'));
         $this->renderLayout();
     }
 
@@ -29,7 +29,7 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
     {
         if ($data = $this->getRequest()->getPost()) {
             try {
-                $model = Mage::getModel('dsnews/news');
+                $model = Mage::getModel('dscall/call');
                 $model->setData($data)->setId($this->getRequest()->getParam('id'));
                 if(!$model->getCreated()){
                     $model->setCreated(now());
@@ -56,7 +56,7 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
     {
         if ($id = $this->getRequest()->getParam('id')) {
             try {
-                Mage::getModel('dsnews/news')->setId($id)->delete();
+                Mage::getModel('dscall/call')->setId($id)->delete();
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('News was deleted successfully'));
             } catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
@@ -66,42 +66,16 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/');
     }
 
-
-   public function massStatusAction()
-    {
-        $newsIds = $this->getRequest()->getParam('news');
-        if (!is_array($newsIds)) {
-            Mage::getSingleton('adminhtml/session')->addError($this->__('Please select item(s)'));
-        } else {
-            try {
-                foreach ($newsIds as $newsId) {
-                    $news = Mage::getSingleton('dsnews/news')
-                            ->load($newsId)
-                            ->setStatus($this->getRequest()->getParam('status'))
-                            ->setIsMassupdate(true)
-                            ->save();
-                }
-                $this->_getSession()->addSuccess(
-                    $this->__('Total of %d record(s) were successfully updated', count($newsIds))
-                );
-            } catch (Exception $e) {
-                $this->_getSession()->addError($e->getMessage());
-            }
-        }
-        $this->_redirect('*/*/index');
-    }
-
-
     public function massDeleteAction()
     {
-        $news = $this->getRequest()->getParam('news', null);
+        $call = $this->getRequest()->getParam('call', null);
 
-        if (is_array($news) && sizeof($news) > 0) {
+        if (is_array($call) && sizeof($call) > 0) {
             try {
-                foreach ($news as $id) {
-                    Mage::getModel('dsnews/news')->setId($id)->delete();
+                foreach ($call as $id) {
+                    Mage::getModel('dscall/call')->setId($id)->delete();
                 }
-                $this->_getSession()->addSuccess($this->__('Total of %d news have been deleted', sizeof($news)));
+                $this->_getSession()->addSuccess($this->__('Total of %d call have been deleted', sizeof($call)));
             } catch (Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
             }

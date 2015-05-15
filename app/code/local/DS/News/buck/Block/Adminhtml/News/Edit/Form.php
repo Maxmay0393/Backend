@@ -22,11 +22,10 @@ class DS_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget
         $fieldset = $form->addFieldset('news_form', array('legend' => $helper->__('Testimonials  Information')));
 
 
-        $fieldset->addField('title','select', array(
-            'label' => $helper->__('Users'),
+        $fieldset->addField('title', 'text', array(
+            'label' => $helper->__('Custom'),
             'required' => true,
             'name' => 'title',
-            'values' => $helper->getUsersList(),
         ));
 
         $fieldset->addField('content', 'editor', array(

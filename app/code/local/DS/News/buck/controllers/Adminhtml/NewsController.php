@@ -67,20 +67,45 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
     }
 
 
-   public function massStatusAction()
-    {
+//    public function massStatusAction()
+//    {
+//
+//       $newsIds = $this->getRequest()->getParam('news');
+//        $status     = (int)$this->getRequest()->getParam('status');
+//            if(!is_array($newsIds)) {
+//                  // No products selected
+//                    Mage::getSingleton('adminhtml/session')->addError($this->__('Please select tag(s)'));
+//            } else {
+//                     try {
+//                            foreach ($newsIds as $id)
+//                            {           Mage::getSingleton('dsnews/news')
+//                                     ->load($id)
+//                                      ->setStatus($this->getRequest()->getParam('status'));
+//
+//                            }
+//               Mage::getSingleton('adminhtml/session')->addSuccess(
+//                     $this->__('Total of %d record(s) were successfully updated', count($newsIds))
+//                );
+//           } catch (Exception $e) {
+//                         $this->_getSession()->addError($e->getMessage());
+//                     }
+//         }
+//
+//        $this->_redirect('*/*/');
+//
+//    }
+    public function massStatusAction()
+    {   $news_id = $this->getRequest()->getParam('id');
         $newsIds = $this->getRequest()->getParam('news');
         if (!is_array($newsIds)) {
             Mage::getSingleton('adminhtml/session')->addError($this->__('Please select item(s)'));
         } else {
             try {
-                foreach ($newsIds as $newsId) {
-                    $news = Mage::getSingleton('dsnews/news')
-                            ->load($newsId)
-                            ->setStatus($this->getRequest()->getParam('status'))
-                            ->setIsMassupdate(true)
-                            ->save();
-                }
+                foreach ($newsIds as $news_id) {
+                            Mage::getSingleton('dsnews/news')
+                            ->load($news_id)
+                            ->setStatus($this->getRequest()->getParam('status')->save());
+}
                 $this->_getSession()->addSuccess(
                     $this->__('Total of %d record(s) were successfully updated', count($newsIds))
                 );
@@ -88,8 +113,10 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
                 $this->_getSession()->addError($e->getMessage());
             }
         }
-        $this->_redirect('*/*/index');
+        $this->_redirect('*/*/');
     }
+
+
 
 
     public function massDeleteAction()

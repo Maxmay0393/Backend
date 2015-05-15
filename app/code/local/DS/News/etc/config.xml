@@ -1,8 +1,34 @@
 <?xml version="1.0" ?>
 <config>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <my>
+                                            <title>My Module</title>
+                                        </my>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
     <modules>
+
         <DS_News>
-            <version>0.0.1</version>
+            <version>0.0.4</version>
         </DS_News>
     </modules>
     <admin>
@@ -39,7 +65,7 @@
                 <use>standard</use>
                 <args>
                     <module>DS_News</module>
-                    <frontName>Testimonials</frontName>
+                    <frontName>testimonials</frontName>
                 </args>
             </dsnews>
         </routers>

@@ -1,12 +1,12 @@
 <?php
 
-class DS_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
+class DS_Call_Block_Adminhtml_Call_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
 
     protected function _prepareForm()
     {
-        $helper = Mage::helper('dsnews');
-        $model = Mage::registry('current_news');
+        $helper = Mage::helper('dscall');
+        $model = Mage::registry('current_call');
 
         $form = new Varien_Data_Form(array(
                     'id' => 'edit_form',
@@ -19,14 +19,12 @@ class DS_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget
 
         $this->setForm($form);
 
-        $fieldset = $form->addFieldset('news_form', array('legend' => $helper->__('Testimonials  Information')));
+        $fieldset = $form->addFieldset('call_form', array('legend' => $helper->__('Call_back')));
 
-
-        $fieldset->addField('title','select', array(
-            'label' => $helper->__('Users'),
+        $fieldset->addField('title', 'text', array(
+            'label' => $helper->__('Title'),
             'required' => true,
             'name' => 'title',
-            'values' => $helper->getUsersList(),
         ));
 
         $fieldset->addField('content', 'editor', array(
@@ -41,26 +39,7 @@ class DS_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget
             'label' => $helper->__('Created'),
             'name' => 'created'
         ));
-
-        $fieldset->addField('status', 'select', array(
-            'label' => $helper->__('Status'),
-            'name' => 'status',
-            'values' => array(
-                array(
-                    'value' => 1,
-                    'label' => $helper->__('Enabled'),
-                ),
-                array(
-                    'value' => 0,
-                    'label' => $helper->__('Disabled'),
-                ),
-            ),
-        ));
-        if (!$model->getId()) {
-            $model->setData('is_active', '1');
-        }
-
-		
+        
         $form->setUseContainer(true);
 
         if($data = Mage::getSingleton('adminhtml/session')->getFormData()){

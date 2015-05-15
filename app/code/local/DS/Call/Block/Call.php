@@ -1,13 +1,18 @@
 <?php
 
-class DS_News_Block_News extends Mage_Core_Block_Template
+class DS_Call_Block_Call extends Mage_Core_Block_Template
 {
 
-    public function getNewsCollection()
+    public function getLoSrc()
     {
-        $newsCollection = Mage::getModel('dsnews/news')->getCollection();
-        $newsCollection->setOrder('news_id', 'DESC');
-        return $newsCollection;
+        echo'wwww';
+    }
+
+    public function getCallCollection()
+    {
+        $callCollection = Mage::getModel('dscall/call')->getCollection();
+        $callCollection->setOrder('call_id', 'DESC');
+        return $callCollection;
     }
 	 public function getWelcome()
     {
@@ -15,22 +20,17 @@ class DS_News_Block_News extends Mage_Core_Block_Template
             if (Mage::isInstalled() && Mage::getSingleton('customer/session')->isLoggedIn()) {
                 $this->_data['welcome'] = $this->__('Welcome, %s!', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getName()));
             } else {
-                $this->_data['welcome'] = Mage::getStoreConfig('design/News/welcome');
+                $this->_data['welcome'] = Mage::getStoreConfig('design/Call/welcome');
             }
         }
 
         return $this->_data['welcome'];
     }
-
-
-
-
 public function __construct()
     {
         parent::__construct();
-        $collection = Mage::getModel('dsnews/news')->getCollection()->addFieldToFilter('status', '1');
+        $collection = Mage::getModel('dscall/call')->getCollection();
         $this->setCollection($collection);
-
         $collection->setOrder('created', 'DESC');
         return $collection;
     }

@@ -19,13 +19,10 @@ class DS_News_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_Grid
             'header' => $helper->__('Testimonials  ID'),
             'index' => 'news_id'
         ));
-
-
         $this->addColumn('title', array(
-            'header' => $helper->__('Customers'),
+            'header' => $helper->__('Title'),
             'index' => 'title',
-            'type' => 'options',
-            'options' =>$helper->getUsersListOnGrid(),
+            'type' => 'text',
         ));
         $this->addColumn('content', array(
             'header' => $helper->__('Content'),
