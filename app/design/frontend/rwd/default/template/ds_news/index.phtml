@@ -50,7 +50,7 @@ $newsViewUrl = Mage::getUrl('news/index/view');
             <?php foreach ($collection as $_obj): ?>
                 <tr>
 
-                    <td><span class="nobr" id="str"><?php echo $_obj->getTitle(); ?></span></td>
+                    <td><span class="nobr" id="str"><?php echo $_obj->getuser_name(); ?></span></td>
                     <td id="show"><span class="nobr"><?php echo $_obj->getcontent(); ?></span></td>
                     <td><?php echo $this->formatDate($_obj->getCreated()) ?></td>
                 </tr>

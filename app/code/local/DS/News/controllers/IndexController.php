@@ -33,15 +33,16 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
     //выбираем данные из пришедшего запроса POST
     $title = ''.Mage::getSingleton('customer/session')->getCustomer()->getId();
     $content = ''.$this->getRequest()->getPost('content');
-	
-     
+
+     $user_name = ''.Mage::getSingleton('customer/session')->getCustomer()->getName();
  
-    if(isset($title)&&($title!='') && isset($content)&&($content!=''))
+    if(isset($title)&&($title!='') && isset($content)&&($content!='')&& isset($user_name)&&($user_name!=''))
    {
       //записываем данные в базу
       $contact = Mage::getModel('dsnews/news');
       $contact->setData('title', $title);
       $contact->setData('content', $content);
+       $contact->setData('user_name', $user_name);
       $contact->save();
    }
    //перенаправление на метод index контроллера indexController

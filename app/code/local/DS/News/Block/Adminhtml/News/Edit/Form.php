@@ -23,10 +23,17 @@ class DS_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget
 
 
         $fieldset->addField('title','select', array(
-            'label' => $helper->__('Users'),
+            'label' => $helper->__('Id_name'),
             'required' => true,
             'name' => 'title',
             'values' => $helper->getUsersList(),
+        ));
+
+        $fieldset->addField('user_name','select', array(
+            'label' => $helper->__('User name'),
+            'required' => true,
+            'name' => 'user_name',
+            'values' => $helper->getUsersName(),
         ));
 
         $fieldset->addField('content', 'editor', array(
