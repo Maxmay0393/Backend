@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <tabs>
-        <my translate="label" module="dsnews">
+        <ds translate="label" module="dsnews">
             <label>Module TESTIMONIALS</label>
             <sort_order>100</sort_order>
-        </my>
+        </ds>
     </tabs>
     <sections>
-        <my translate="label" module="dsnews">
+        <ds translate="label" module="dsnews">
             <label>Custom Module Options</label>
-            <tab>my</tab>
+            <tab>ds</tab>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
-                <my_group translate="label" module="dsnews">
+                <ds_group translate="label" module="dsnews">
                     <label>Module Settings</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1000</sort_order>
@@ -23,7 +23,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <my_input translate="label">
+                        <ds_title translate="label">
                             <label>Setting Title: </label>
                             <comment><![CDATA[Title in web site]]></comment>
                             <frontend_type>text</frontend_type>
@@ -31,9 +31,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </my_input>
+                        </ds_title>
 
-                        <my_input1 translate="label">
+                        <ds_keywords translate="label">
                             <label>Setting Keywords: </label>
                             <comment><![CDATA[Keywords in web site]]></comment>
                             <frontend_type>text</frontend_type>
@@ -41,9 +41,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </my_input1>
+                        </ds_keywords>
 
-                        <my_input2 translate="label">
+                        <ds_description translate="label">
                             <label>Setting Description: </label>
                             <comment><![CDATA[Description in web site]]></comment>
                             <frontend_type>textarea</frontend_type>
@@ -51,10 +51,10 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </my_input2>
+                        </ds_description>
                     </fields>
-                </my_group>
+                </ds_group>
             </groups>
-        </my>
+        </ds>
     </sections>
 </config>

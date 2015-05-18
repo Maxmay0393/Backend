@@ -12,9 +12,9 @@
                             <children>
                                 <config>
                                     <children>
-                                        <my>
+                                        <ds>
                                             <title>My Module</title>
-                                        </my>
+                                        </ds>
                                     </children>
                                 </config>
                             </children>
