@@ -1,7 +1,6 @@
 <?php
 
-echo '<h1>Upgrade DS News to version 0.0.3</h1>';
-exit;
+
 
 $installer = $this;
 $connection = $installer->getConnection();
