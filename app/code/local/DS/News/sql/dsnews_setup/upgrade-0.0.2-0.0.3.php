@@ -1,6 +1,7 @@
 <?php
 
 
+
 $installer = $this;
 $connection = $installer->getConnection();
  
