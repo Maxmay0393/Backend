@@ -8,7 +8,7 @@ $tableNews = $installer->getTable('dsnews/table_news');
 $installer->startSetup();
 $installer->run
 ("
-   ALTER TABLE `{$tableNews}` ADD  FOREIGN KEY (`title`) REFERENCES `test1`.`customer_entity`(`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+   ALTER TABLE `{$tableNews}` ADD  FOREIGN KEY (`title`) REFERENCES `customer_entity`(`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ");
 $installer->endSetup();
