@@ -6,15 +6,7 @@ $newsViewUrl = Mage::getUrl('news/index/view');
 
 ?>
 
-<div id="openModal1" class="modalDialog">
-    <div>
-        <form action="<?php echo Mage::getUrl('Call_back/index/save') ?>" method="post">
-            <a href="#close" title="Close" class="close">X</a>
-            <h2>Caution</h2>
-            <p>Testimonials adopted and will be published after verification</p>
-        </form>
-    </div>
-</div>
+
 
 <div class="col-main111">
     <form action="<?php echo Mage::getUrl('testimonials/index/save') ?>" method="post">
@@ -25,7 +17,7 @@ $newsViewUrl = Mage::getUrl('news/index/view');
 
 	     <p>Testimonials<Br>
 	        <textarea name="content" cols="40" rows="3"></textarea></p>
-	         <input name="button" type="submit" value="Add item" onclick="location.href='#openModal1'"></p>
+	         <input name="button" type="submit" value="Add item"></p>
 
     <?php else: ?>
             <?php echo 'Sign in to leave a review!!!!';?>
