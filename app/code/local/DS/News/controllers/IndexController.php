@@ -29,9 +29,9 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
       $contact->setData('title', $title);
       $contact->setData('content', $content);
       $contact->setData('user_name', $user_name);
-	  Mage::getSingleton('core/session')->addSuccess('Testimonials adopted and will be published after verification');
       $contact->save();
    }
+     Mage::getSingleton('core/session')->addSuccess('Testimonials adopted and will be published after verification');
    //перенаправление на метод index контроллера indexController
     
    $this->_redirect('testimonials/index/index');
