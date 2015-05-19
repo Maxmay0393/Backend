@@ -6,9 +6,9 @@ class DS_News_Helper_Data extends Mage_Core_Helper_Abstract
     {
 
         $groups = Mage::getResourceModel('customer/customer_collection')->addNameToSelect()->load();
-        $result=1;
+        $result=array();
         foreach ($groups as $customer) {
-                                                 $result =  array(
+                                                 $result[] =  array(
                                                      'label' => $customer->getName(),
                                                      'value' => $customer->getid(),
                                                  );
@@ -21,9 +21,9 @@ class DS_News_Helper_Data extends Mage_Core_Helper_Abstract
     {
 
         $groups = Mage::getResourceModel('customer/customer_collection')->addNameToSelect()->load();
-        $result1=1;
+        $result1=array();
         foreach ($groups as $customer) {
-            $result1 =  array(
+            $result1[] =  array(
                 'label' => $customer->getName(),
                 'value' => $customer->getName(),
             );
