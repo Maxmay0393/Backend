@@ -21,16 +21,16 @@ class DS_News_Helper_Data extends Mage_Core_Helper_Abstract
     {
 
         $groups = Mage::getResourceModel('customer/customer_collection')->addNameToSelect()->load();
-        $result1=array();
+        $result=array();
         foreach ($groups as $customer) {
-            $result1[] =  array(
+            $result[] =  array(
                 'label' => $customer->getName(),
                 'value' => $customer->getName(),
             );
 
         }
 
-        return $result1;
+        return $result;
     }
     public function getUsersListOnGrid()
     {
