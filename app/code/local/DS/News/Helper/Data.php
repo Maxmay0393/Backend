@@ -8,30 +8,27 @@ class DS_News_Helper_Data extends Mage_Core_Helper_Abstract
         $groups = Mage::getResourceModel('customer/customer_collection')->addNameToSelect()->load();
         $result=array();
         foreach ($groups as $customer) {
-                                                 $result[] =  array(
-                                                     'label' => $customer->getName(),
-                                                     'value' => $customer->getid(),
-                                                 );
-
-                                       }
-
+            $result[] =  array(
+                'label' => $customer->getName(),
+                'value' => $customer->getid(),
+                               );
+                                        }
         return $result;
     }
+
     public function getUsersName()
     {
-
         $groups = Mage::getResourceModel('customer/customer_collection')->addNameToSelect()->load();
         $result=array();
         foreach ($groups as $customer) {
             $result[] =  array(
                 'label' => $customer->getName(),
                 'value' => $customer->getName(),
-            );
-
-        }
-
+                            );
+                                        }
         return $result;
     }
+
     public function getUsersListOnGrid()
     {
         $groups = Mage::getResourceModel('customer/customer_collection')->addNameToSelect()->load();
@@ -40,6 +37,5 @@ class DS_News_Helper_Data extends Mage_Core_Helper_Abstract
             $output[$category->getid()] = $category->getName();
         }
         return $output;
-
     }
 }

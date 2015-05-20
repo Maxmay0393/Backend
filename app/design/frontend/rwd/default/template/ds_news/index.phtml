@@ -1,28 +1,14 @@
-<?php
-$news = $this->getNewsCollection();
-$newsViewUrl = Mage::getUrl('news/index/view');
-//echo Mage::helper('customer')->getCustomer()->getId();
-//print_r(Mage::helper('customer')->getCustomer()->getData());
-
-?>
-
-
-
 <div class="col-main111">
     <form action="<?php echo Mage::getUrl('testimonials/index/save') ?>" method="post">
-        <?php if ($this->helper('customer')->isLoggedIn()):?>
-
-	     <h4>Login:</h4>
-	        <p id="welcomee" ><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName();?></p>
-
-	     <p>Testimonials<Br>
-	        <textarea name="content" cols="40" rows="3"></textarea></p>
-	         <input name="button" type="submit" value="Add item"></p>
-
-    <?php else: ?>
+            <?php if ($this->helper('customer')->isLoggedIn()):?>
+                <h4>Login:</h4>
+	                     <p id="welcomee" ><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName();?></p>
+	            <p>Testimonials<Br>
+	                    <textarea name="content" cols="40" rows="3"></textarea></p>
+	                    <input name="button" type="submit" value="Add item"></p>
+        <?php else: ?>
             <?php echo 'Sign in to leave a review!!!!';?>
         <?php endif ?>
-
     </form>
 
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>

@@ -16,15 +16,14 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
 	
 	public function saveAction()
  {
-    //выбираем данные из пришедшего запроса POST
+    //select data from a POST request came
     $title = ''.Mage::getSingleton('customer/session')->getCustomer()->getId();
     $content = ''.$this->getRequest()->getPost('content');
-
      $user_name = ''.Mage::getSingleton('customer/session')->getCustomer()->getName();
  
     if(isset($title)&&($title!='') && isset($content)&&($content!='')&& isset($user_name)&&($user_name!=''))
    {
-      //записываем данные в базу
+      //write data to the database
       $contact = Mage::getModel('dsnews/news');
       $contact->setData('title', $title);
       $contact->setData('content', $content);
@@ -32,9 +31,10 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
       $contact->save();
    }
      Mage::getSingleton('core/session')->addSuccess('Testimonials adopted and will be published after verification');
-   //перенаправление на метод index контроллера indexController
+   //redirection to the index method indexController
     
    $this->_redirect('testimonials/index/index');
 }
 
 }
+?>

@@ -1,7 +1,4 @@
 <?php
-
-
-
 $installer = $this;
 $connection = $installer->getConnection();
  
@@ -19,6 +16,6 @@ $installer->getConnection()
 );
  
 $installer->endSetup();		
-		
+?>
 		
 

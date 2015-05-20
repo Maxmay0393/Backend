@@ -112,3 +112,4 @@ class DS_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
     }
 
 }
+?>

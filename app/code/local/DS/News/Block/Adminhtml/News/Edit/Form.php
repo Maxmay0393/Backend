@@ -80,3 +80,4 @@ class DS_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget
     }
 
 }
+?>

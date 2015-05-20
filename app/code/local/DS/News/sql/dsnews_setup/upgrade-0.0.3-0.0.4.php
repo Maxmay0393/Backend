@@ -1,25 +1,18 @@
 <?php
-
-//echo '<h1>Upgrade DS News to version 0.0.3</h1>';
-//exit;
-
 $installer = $this;
-$connection = $installer->getConnection();
- 
-$installer->startSetup();
- 
-$installer->getConnection()
-    ->addColumn($installer->getTable('dsnews/table_news'),
-    'status',
-    array(
-        'type' => Varien_Db_Ddl_Table::TYPE_SMALLINT,
-        'nullable' => false,
-        'default' => '0',
-        'comment' => 'status'
-    )
-);
- 
-$installer->endSetup();		
-		
-		
+$tableNews = $installer->getTable('dsnews/table_news');
 
+$installer->startSetup();
+$installer->getConnection()
+    ->changeColumn($tableNews, 'title', 'title', array(
+        'type' => Varien_Db_Ddl_Table::TYPE_INTEGER,
+        'length'    => '10',
+        'nullable' => false,
+        'comment'   => 'custome_id',
+        'unsigned'  => true
+
+    ));
+
+
+$installer->endSetup();
+?>
