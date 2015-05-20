@@ -15,3 +15,4 @@ class DS_News_Block_Adminhtml_News extends Mage_Adminhtml_Block_Widget_Grid_Cont
     }
 
 }
+?>
