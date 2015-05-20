@@ -17,8 +17,8 @@ class DS_News_IndexController extends Mage_Core_Controller_Front_Action
 	public function saveAction()
  {
     //select data from a POST request came
-    $title = ''.Mage::getSingleton('customer/session')->getCustomer()->getId();
-    $content = ''.$this->getRequest()->getPost('content');
+         $title = ''.Mage::getSingleton('customer/session')->getCustomer()->getId();
+       $content = ''.$this->getRequest()->getPost('content');
      $user_name = ''.Mage::getSingleton('customer/session')->getCustomer()->getName();
  
     if(isset($title)&&($title!='') && isset($content)&&($content!='')&& isset($user_name)&&($user_name!=''))
