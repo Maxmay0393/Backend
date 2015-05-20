@@ -20,6 +20,8 @@ $table = $installer->getConnection()
         ))
     ->addColumn('created', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         'nullable'  => false,
+		 'default' => Varien_Db_Ddl_Table::TIMESTAMP_INIT,
+		 'comment'   => 'date_create',
     ));
 $installer->getConnection()->createTable($table);
 
